@@ -12,8 +12,7 @@ import { DateRange } from "react-date-range";
 import { useState } from "react";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
-import { format, yearsToMonths } from "date-fns";
-
+import { format } from "date-fns";
 
 const App = ({ type }) => {
   const [openDate, setOpenDate] = useState(false);
@@ -39,7 +38,7 @@ const App = ({ type }) => {
       };
     });
   };
-  const price = 1000;
+  const price = 10;
   return (
     <>
       <div className="headerSearch">
@@ -53,7 +52,7 @@ const App = ({ type }) => {
             "MM/dd/yyyy"
           )}`}</span>
           {openDate && (
-            <DateRange            
+            <DateRange
               rangeColors={["#bd1b1b "]}
               editableDateInputs={false}
               onChange={(item) => setDate([item.selection])}
@@ -62,6 +61,15 @@ const App = ({ type }) => {
               startDatePlaceholder="100"
               className="date"
               minDate={new Date()}
+              dayContentRenderer={(date) => (
+                <>
+                  <div className="date_price">
+                    <p>{date.getDate()}</p>
+
+                    <p> {price}</p>
+                  </div>
+                </>
+              )}
             />
           )}
         </div>
@@ -88,9 +96,7 @@ const App = ({ type }) => {
                     disabled={options.adult <= 1}
                     className="optionCounterButton"
                     onClick={() => handleOption("adult", "d")}
-                  >
-                    -
-                  </button>
+                  ></button>
                   <span className="optionCounterNumber">{options.adult}</span>
                   <button
                     className="optionCounterButton"
