@@ -33,8 +33,6 @@
   margin: 10px;
 }
 
-
-
 .headerSearchInput {
   border: none;
   outline: none;
@@ -49,6 +47,17 @@
   position: absolute;
   top: 50px;
   z-index: 2;
+  background: black;
+
+}
+.date_price {
+  width: 2rem;
+  height: 5rem;
+  padding: 1rem;
+  /* background-color: black; */
+  height: -10px;
+  width: fit-content;
+
 }
 
 .options {
